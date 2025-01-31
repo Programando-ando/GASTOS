@@ -21,7 +21,7 @@ chbox.addEventListener('change', function(){
 
 function updateButtonText(theme) {
   const button = document.getElementById("flexSwitchCheckChecked");
-  button.textContent = theme === "dark" ? chbox.checked : chbox.unchecked;
+  button.setAttribute = theme === "dark" ? button.checked = true : button.checked = false;
 }
 
 const addgasto = document.getElementById("addg");
