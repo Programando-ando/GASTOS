@@ -1,5 +1,13 @@
 var gastos = JSON.parse(localStorage.getItem("gastos")) || [];
 
+function applyTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const theme = savedTheme || systemTheme;
+  document.documentElement.setAttribute("data-theme", theme);
+  updateButtonText(theme);
+}
+
 let chbox = document.querySelector('#flexSwitchCheckChecked');
 let body = document.body;
 
@@ -10,6 +18,11 @@ chbox.addEventListener('change', function(){
         body.setAttribute('style','background-color: white; color:black;', 'h1 color:black', 'border: 2px solid black;')
     }
 });
+
+function updateButtonText(theme) {
+  const button = document.getElementById("flexSwitchCheckChecked");
+  button.textContent = theme === "dark" ? chbox.checked : chbox.unchecked;
+}
 
 const addgasto = document.getElementById("addg");
 
@@ -234,3 +247,11 @@ document.getElementById("aumentar").onclick = () => {
 }
 
 mostrarGasto();
+
+        applyTheme();
+
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+            if (!localStorage.getItem("theme")) {
+                applyTheme();
+            }
+        });

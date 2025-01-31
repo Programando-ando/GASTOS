@@ -1,0 +1,48 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
+
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+}
+
+body {
+    background: black;
+    color: white;
+    text-align: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  #mostrarG {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  .card {
+    background: black;
+    color: white;
+    border: 2px solid white;
+    width: 18rem;
+    margin: 10px;
+  }
+  
+  .modal {
+    color: black;
+  }
+
+  .form-check {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .form-check-label {
+    margin-left: 10px;
+  }
